@@ -1081,7 +1081,7 @@ err_pidle_workqueue:
 	return ret;
 }
 
-static int st21nfc_remove(struct i2c_client *client)
+static void st21nfc_remove(struct i2c_client *client)
 {
 	struct st21nfc_device *st21nfc_dev = i2c_get_clientdata(client);
 
@@ -1095,8 +1095,6 @@ static int st21nfc_remove(struct i2c_client *client)
 	sysfs_remove_group(&client->dev.kobj, &st21nfc_attr_grp);
 	mutex_destroy(&st21nfc_dev->read_mutex);
 	acpi_dev_remove_driver_gpios(ACPI_COMPANION(&client->dev));
-
-	return 0;
 }
 
 static int st21nfc_suspend(struct device *device)
