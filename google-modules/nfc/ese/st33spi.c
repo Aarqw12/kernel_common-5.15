@@ -28,6 +28,8 @@
 #include <linux/of_device.h>
 #include <linux/acpi.h>
 
+#include <linux/pinctrl/consumer.h>
+
 #include <linux/spi/spi.h>
 #include <linux/spi/spidev.h>
 
