@@ -41,6 +41,7 @@
 #include <linux/i2c-dev.h>
 #include <linux/gpio.h>
 #include <linux/of_gpio.h>
+#include <linux/pinctrl/consumer.h>
 #include <linux/regulator/consumer.h>
 #include <linux/input.h>
 #include <linux/input/mt.h>
