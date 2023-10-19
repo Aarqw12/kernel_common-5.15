@@ -1097,8 +1097,8 @@ static int gs_get_trend(void *p, int trip, enum thermal_trend *trend)
 	struct thermal_zone_device *tz = data->tzd;
 	int trip_temp, ret = 0;
 
-	if (!tz)
-		return ret;
+	if (!data)
+		return -EINVAL;
 
 	ret = tz->ops->get_trip_temp(tz, trip, &trip_temp);
 	if (ret < 0)
