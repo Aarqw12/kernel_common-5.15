@@ -3,6 +3,8 @@
 # Makefile for misc devices that really don't fit anywhere else.
 #
 
+CFLAGS_logbuffer.o += -Wno-missing-prototypes
+
 obj-$(CONFIG_GSC_TPM)		+= gsc-spi.o
 obj-$(CONFIG_S5910)		    += s5910/
 obj-$(CONFIG_SBB_MUX)		+= sbb-mux/
