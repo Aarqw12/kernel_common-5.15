@@ -21,11 +21,12 @@
 #include <linux/io.h>
 #include <linux/kernel.h>
 #include "phy-samsung-usb-cal.h"
+#include "phy-exynos-usbdp-gen2-v4.h"
 #include "phy-exynos-usb3p1-reg.h"
 #include "phy-exynos-usbdp-gen2-v4-reg.h"
 #include "phy-exynos-usbdp-gen2-v4-reg-pcs.h"
 
-void phy_exynos_usbdp_g2_v2_tune_each(struct exynos_usbphy_info
+static void phy_exynos_usbdp_g2_v2_tune_each(struct exynos_usbphy_info
 		*info, char *name, int val)
 {
 	void __iomem *regs_base = info->pma_base;
@@ -1934,7 +1935,7 @@ int phy_exynos_usbdp_g2_v4_internal_loopback(struct exynos_usbphy_info *info, u3
 	return ret;
 }
 
-void phy_exynos_usbdp_g2_v4_eom_init(struct exynos_usbphy_info *info, u32 cmn_rate)
+static void phy_exynos_usbdp_g2_v4_eom_init(struct exynos_usbphy_info *info, u32 cmn_rate)
 {
 	void __iomem *regs_base = info->pma_base;
 	u32 reg;
@@ -2440,7 +2441,8 @@ static void phy_exynos_usbdp_g2_v4_eom_deinit(struct exynos_usbphy_info *info)
 }
 
 
-void phy_exynos_usbdp_g2_v4_eom_start(struct exynos_usbphy_info *info, u32 ph_sel, u32 def_vref)
+static void
+phy_exynos_usbdp_g2_v4_eom_start(struct exynos_usbphy_info *info, u32 ph_sel, u32 def_vref)
 {
 	void __iomem *regs_base = info->pma_base;
 	u32 reg;
@@ -2518,7 +2520,7 @@ void phy_exynos_usbdp_g2_v4_eom_start(struct exynos_usbphy_info *info, u32 ph_se
 }
 
 
-int phy_exynos_usbdp_g2_v4_eom_get_done_status(struct exynos_usbphy_info *info)
+static int phy_exynos_usbdp_g2_v4_eom_get_done_status(struct exynos_usbphy_info *info)
 {
 	void __iomem *regs_base = info->pma_base;
 	u32 reg;
@@ -2546,7 +2548,7 @@ int phy_exynos_usbdp_g2_v4_eom_get_done_status(struct exynos_usbphy_info *info)
 }
 
 
-u64 phy_exynos_usbdp_g2_v4_eom_get_err_cnt(struct exynos_usbphy_info *info, u32 cmn_rate)
+static u64 phy_exynos_usbdp_g2_v4_eom_get_err_cnt(struct exynos_usbphy_info *info, u32 cmn_rate)
 {
 	void __iomem *regs_base = info->pma_base;
 	u32 reg;
@@ -2633,7 +2635,7 @@ u64 phy_exynos_usbdp_g2_v4_eom_get_err_cnt(struct exynos_usbphy_info *info, u32 
 
 }
 
-void phy_exynos_usbdp_g2_v4_eom_stop(struct exynos_usbphy_info *info)
+static void phy_exynos_usbdp_g2_v4_eom_stop(struct exynos_usbphy_info *info)
 {
 	void __iomem *regs_base = info->pma_base;
 	u32 reg;
